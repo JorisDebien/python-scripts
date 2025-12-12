@@ -1,0 +1,2 @@
+python3 picture_sorter.py
+pause
