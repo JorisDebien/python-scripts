@@ -1,0 +1,42 @@
+import os
+import shutil
+from datetime import datetime
+
+
+def sort_jpgs_in_folder(folder_path):
+
+    # iterate through all files in the given folder
+    for name in os.listdir(folder_path):
+        print(f"Processing file: {name}")
+        src = os.path.join(folder_path, name)
+        if not os.path.isfile(src):
+            continue
+        if not name.lower().endswith('.jpg'):
+            continue
+
+        # get the timestamp and parse to year and month
+        mtime = os.path.getmtime(src)
+        dt = datetime.fromtimestamp(mtime)
+        year = dt.year
+        month = dt.month
+
+        # create a directory structure based on year and month if not exists
+        destination_dir = os.path.join(folder_path, str(year), f"{month:02d}")
+        os.makedirs(destination_dir, exist_ok=True)
+
+        # move the jpg file to the corresponding directory
+        destination = os.path.join(destination_dir, name)
+        base, ext = os.path.splitext(name)
+        counter = 1
+        while os.path.exists(destination):
+            destination = os.path.join(destination_dir, f"{base}_{counter}{ext}")
+            counter += 1
+        shutil.move(src, destination)
+
+
+    print(f"All .jpg files have been moved to their respective folders in {folder_path}.")
+
+
+
+path = "C:\Users\joris\Dropbox\Camera Uploads\2013"
+sort_jpgs_in_folder(path)
