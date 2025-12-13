@@ -1,3 +1,6 @@
+"""
+Simple weather checker that fetches current weather data for a specified city using OpenWeatherMap API.
+"""
 import requests
 import yaml
 
@@ -24,4 +27,4 @@ if __name__ == "__main__":
     api_key = config['api_key']
     city = config['city']
     weather_data = check_weather(api_key, city)
-    print(weather_data)
+    print_results(weather_data)
