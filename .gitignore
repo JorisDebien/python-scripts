@@ -1,0 +1,9 @@
+# Configuration files with sensitive data
+weather_checker/config.yml
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
