@@ -1,3 +1,12 @@
+""""
+A script to sort .jpg files in a specified folder into subfolders based on their last modified year and month.
+
+Potential improvements:
+- add folder selection dialog
+- read actual exif data for date taken instead of last modified date
+"""
+
+
 import os
 import shutil
 from datetime import datetime
