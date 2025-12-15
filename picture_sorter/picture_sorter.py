@@ -46,6 +46,6 @@ def sort_jpgs_in_folder(folder_path):
     print(f"All .jpg files have been moved to their respective folders in {folder_path}.")
 
 
-
-path = "C:\\Users\\joris\\Dropbox\\Camera Uploads\\2020"
-sort_jpgs_in_folder(path)
+if  __name__== "__main__":
+    path = "C:\\Users\\joris\\Dropbox\\Camera Uploads\\2020"
+    sort_jpgs_in_folder(path)
